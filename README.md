@@ -15,7 +15,7 @@ In the project directory, you can run:
 
 ### `npm start`
 
-After that open a new terminal and cd to src/server and run command:
+After that open a new terminal and cd to server/ and run command:
 
 ### `node index.js` 
 
