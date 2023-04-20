@@ -1,3 +1,4 @@
+require("dotenv").config()
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -10,8 +11,10 @@ app.use(cors());
 app.use(cookieParser())
 app.use(require("./routes/users"))
 
+const PORT = process.env.PORT || 8080;
 
-mongoose.connect("mongodb://localhost:27017/loginRegisterDB", { useNewUrlParser: true, useUnifiedTopology: true })
+
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log("DB connected successfully");
     })
@@ -19,6 +22,6 @@ mongoose.connect("mongodb://localhost:27017/loginRegisterDB", { useNewUrlParser:
         console.log(err);
     })
 
-app.listen(8080, () => {
+app.listen(PORT, () => {
     console.log("Server running on port 8080");
 })
